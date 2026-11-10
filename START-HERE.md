@@ -14,8 +14,10 @@ https://raw.githubusercontent.com/nii-lab/niil-docs/main/START-HERE.md 를 읽�
 ## Agent: 첫 실행 순서
 
 1. 이 문서와 templates/common/AGENTS.md, templates/common/SYSTEM-PROTOCOL.md를 읽는다.
-   공식 원본은 https://github.com/nii-lab/niil-docs 이다. 자료를 읽을 수 없으면 공개 포털
-   https://nii-lab.github.io/niil-portal/start/ 로 안내한다. 읽지 못한 규약을 읽었다고 보고하지 않는다.
+   공식 원본은 https://github.com/nii-lab/niil-docs 이다. raw 주소를 읽을 수 없으면 공개 본문
+   https://github.com/nii-lab/niil-docs/blob/main/START-HERE.md 로 안내한다. 두 경로를 모두
+   읽지 못하면 운영자에게 공통 매뉴얼을 요청하고, 읽지 못한 규약을 읽었다고 보고하지 않는다.
+   조직 초대 전에는 멤버 전용 포털 접근을 온보딩의 선행 조건으로 삼지 않는다.
 2. 사용자의 현재 환경에서 할 수 있는 일을 먼저 확인한다. 처음에는 사용 중인 agent와
    작업할 컴퓨터/OS만 확인하고, 알아낼 수 있는 정보를 다시 묻지 않는다. GitHub 계정은
    공동 참여가 필요할 때 확인한다. 계정 생성·로그인에서 사용자가 직접 해야 하는 단계를 안내한다.

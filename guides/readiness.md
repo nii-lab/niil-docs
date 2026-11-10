@@ -22,7 +22,7 @@ python3 niil-docs/tools/doctor.py --workspace ./my-niil-workspace --output ./rea
 | 개인 공간 | current와 새 작업 경로 | starter와 첫 기록 준비 |
 | 공통 규약 | 진입 계약·버전 | agent가 읽은 내용과 적용 범위 확인 |
 | 개인 위임 | 본인이 선택한 승인·자동 범위 | 필요한 선택만 사용자에게 요청 |
-| 개인 정책 보관 | 로컬 정책의 Git 제외 | 실제 추적 여부도 별도 확인 |
+| 개인 정책 보관 | Git의 실제 제외·미추적 판정 | 제외되지 않거나 추적 중이면 공유 전 정리 |
 | GitHub | 본인 인증·허용 프로젝트 접근 | 초대·권한·계정 연결 확인 |
 | 실시간 수신 | 이벤트·인증·cursor 복구 | 중계·개인 연결기·오프라인 경로 확인 |
 | Agent 실행 | runner 기동·승인 후 재개 | 개인이 선택한 실행 환경 실습 |
@@ -31,6 +31,26 @@ python3 niil-docs/tools/doctor.py --workspace ./my-niil-workspace --output ./rea
 ready는 해당 검사를 통과했다는 뜻이며 전체 연구 시스템의 완성을 뜻하지 않습니다.
 unknown은 실패가 아니라 아직 검증하지 않은 상태입니다. needs_owner / needs_access /
 needs_setup은 각각 사용자 선택·권한·설정이 필요함을 구분합니다.
+
+개인 공간·공통 규약의 ready는 current.md와 계약 파일의 **존재**를 확인한 결과입니다.
+첫 기록의 내용·placeholder 해소·agent가 실제로 읽었는지까지 검증한 것은 아닙니다.
+첫날 완료는 실제 첫 기록과 다음 행동, 본인이 선택한 정책까지 확인합니다.
+
+개인 정책 보관은 workspace를 절대 경로로 지정해 읽기 전용 Git 검사로 확인합니다.
+`rev-parse`로 작업 트리를 확인하고, 고정된 `agent-policy.local.json` 경로에 대해
+`ls-files`의 추적 상태와 `check-ignore --no-index`의 실제 제외 판정을 확인합니다.
+제외되고 추적되지 않은 경우만 ready이며, 주석에 파일명이 있거나 부정 규칙으로 다시
+포함된 경우는 제외로 계산하지 않습니다. 이미 추적 중이거나 제외되지 않으면 needs_setup입니다.
+Git 미설치·비 Git 공간·검사 시간 초과·검사 오류는 unknown으로 남깁니다. 이 상태에서도
+로컬 온보딩을 계속할 수 있으며, 공유할 repository를 정한 뒤 다시 검사하면 됩니다.
+진단은 ignore 규칙·추적 상태·파일·이력을 수정하지 않고 비밀값이나 Git 오류 본문을 출력하지 않습니다.
+
+공유 파일을 준비할 때는 guides/agent-tutorial.md의 M5와 tools/workspace_bundle.py를
+사용할 수 있습니다. 이 도구는 본인 records에서 명시적으로 공유한 기록을 내보내거나,
+받은 bundle을 별도 imports/records.json에 사본으로 보관하는 로컬 도구입니다. bundle 처리
+성공은 원격 게시·계정별 ACL·자동 동기화·상대 agent 실행의 성공을 뜻하지 않습니다.
+동시 import의 busy 오류는 다른 로컬 쓰기 작업이 진행 중임을 뜻합니다. 작업 종료 후
+재시도하고, 남은 잠금을 출처 확인 없이 자동 삭제하지 않습니다.
 
 ## 포털에서 보기
 

@@ -14,6 +14,7 @@ class OnboardingTests(unittest.TestCase):
             self.assertIn('agent-policy.local.json',(target/'.gitignore').read_text())
             report=diagnose(target);states={c['id']:c['status'] for c in report['checks']}
             self.assertEqual(states['contract'],'ready');self.assertEqual(states['delegation'],'needs_owner');self.assertEqual(states['github'],'unknown');self.assertEqual(states['runner'],'unknown')
+            self.assertEqual(states['private_policy'],'unknown')
             (target/'agent-policy.local.json').write_text('[]')
             self.assertEqual(next(c for c in diagnose(target)['checks'] if c['id']=='delegation')['status'],'needs_owner')
             with self.assertRaises(ValueError):create('member',target,'other')
