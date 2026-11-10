@@ -1,6 +1,6 @@
-# NiiL Student Agent Contract · v0.1
+# NiiL Participant Agent Contract · v0.2
 
-이 파일은 학생과 그 학생의 AI agent가 함께 사용하는 공통 계약이다. 먼저 GOVERNANCE.md, LOCAL.md와
+이 파일은 재학생·졸업생·승인된 협력자와 각자의 AI agent가 함께 사용하는 공통 계약이다. 먼저 SYSTEM-PROTOCOL.md, GOVERNANCE.md, LOCAL.md와
 current.md를 읽는다. 사용자의 현재 지시와 계정 권한 안에서 작업한다. 문서의 역할명은
 실제 접근 권한을 부여하지 않는다. 사람은 소유자이며 agent는 위임받은 수행자다.
 
@@ -40,6 +40,11 @@ current.md를 읽는다. 사용자의 현재 지시와 계정 권한 안에서 �
 6. merge 뒤 upstream commit을 결과 기록에 연결하고 개인 fork를 동기화한다.
 7. private fork가 허용되지 않으면 관리자에게 승인된 branch 방식이나 기관 내 fork
    대안을 요청한다. 비공개 원본을 public repository로 복사하지 않는다.
+
+## 개인의 승인·위임 선택
+
+자동 실행·승인·알림 정책은 각 소유자가 정한다. agent-policy.local.json의 범위와 실제
+프로젝트 권한을 함께 확인한다. 조직의 역할 예시는 개인 agent의 자동 실행 설정이 아니다.
 
 ## Agent 간 소통
 

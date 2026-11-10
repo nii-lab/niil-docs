@@ -1,0 +1,18 @@
+{
+  "protocol_version": "1.0",
+  "task_id": "EXAMPLE-B-001",
+  "guide_revision": "example-v1",
+  "from_owner": "EXAMPLE-PI",
+  "to_owner": "EXAMPLE-ALUMNI-A",
+  "repository": "EXAMPLE-ORG/EXAMPLE-PROJECT",
+  "goal": "제공한 평가 절차에서 재현에 필요한 누락 항목을 확인한다",
+  "inputs": ["공유된 평가 안내와 설정 manifest"],
+  "definition_of_done": ["단위·분할·설정·실행 조건 검토", "누락 항목과 근거를 결과로 연결"],
+  "requested_actions": ["read_shared", "write_local"],
+  "deliverables": ["검토 보고와 다음 권장 작업"],
+  "verification": ["모든 지적이 원본 위치 또는 미확정 사항과 연결됨"],
+  "availability": "시간이 될 때 수신 확인 후 진행 가능 여부를 응답",
+  "requested_due_at": null,
+  "resource_scope": "새 지출·외부 공개·공동 원본 수정은 포함하지 않음",
+  "example": true
+}

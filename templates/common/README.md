@@ -9,3 +9,6 @@ records/에는 공통 JSON 기록, notes/에는 작업 메모, results/에는 �
 
 JSON 기록은 record.example.json을 참고한다. 예제의 빈 source revision과
 evidence는 실제 근거가 생겼을 때 채운다. 샘플 수치를 실제 결과로 제출하지 않는다.
+
+처음 온 참여자는 AGENT-ONBOARDING.md와 SYSTEM-PROTOCOL.md를 읽는다.
+개인 정책은 agent-policy.example.json을 본인이 선택한 값으로 채워 agent-policy.local.json으로 보관한다.

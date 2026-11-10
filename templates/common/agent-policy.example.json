@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "owner_id": "REPLACE-OWNER",
+  "configured_by_owner": false,
+  "mode": "unconfigured",
+  "allowed_repositories": [],
+  "allowed_senders": [],
+  "automatic_actions": [],
+  "availability": "owner_defined",
+  "notifications": "owner_defined",
+  "runner": null,
+  "notes": "본인이 mode와 범위를 선택해 agent-policy.local.json으로 저장. 실제 GitHub 권한은 별도 확인."
+}

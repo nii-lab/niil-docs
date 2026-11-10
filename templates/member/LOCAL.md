@@ -3,6 +3,9 @@
 - template_version: 0.1
 - owner_id: {{owner}}
 - workspace_kind: member
+- participant_type: student / alumni / collaborator 중 선택
+- affiliation: 현재 소속 또는 독립 참여
+- access_scope: 실제 승인된 프로젝트와 repository만 기록
 - upstream: 프로젝트 참여 후 승인된 repository URL을 기록
 - default_visibility: personal
 - shared_record_root: records/

@@ -1,7 +1,10 @@
 # NiiL · 공개 문서와 템플릿
 
-NiiL 연구 협업을 위한 학생 가이드와 재사용 가능한 공간 템플릿입니다.
+NiiL 연구 협업을 위한 재학생·졸업생 공통 가이드와 재사용 가능한 공간 템플릿입니다.
 
+- [아무 정보 없이 처음 시작하기](START-HERE.md)
+- [Codex·Claude Code agent 온보딩](guides/agent-onboarding.md)
+- [Agent 단계별 tutorial](guides/agent-tutorial.md)
 - [학생 온보딩](guides/student-onboarding.md)
 - [fork와 PR 작업 가이드](guides/github-workflow.md)
 - [학생 agent 계약](templates/common/AGENTS.md)
