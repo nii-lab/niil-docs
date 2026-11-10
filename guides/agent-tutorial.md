@@ -90,6 +90,37 @@ Python이 준비된 환경에서는 tools/policy_check.py로 정책의 사전 �
 행동: 원본 ID·작성자·revision을 남기고 내 파생 작업에는 새 ID를 부여합니다. 같은 bundle을
 다시 가져올 때 중복을 생략하고, 같은 ID의 다른 내용은 충돌로 표시합니다. 원본을 덮어쓰지 않습니다.
 
+Python이 준비됐다면 공개 원본의 tools/workspace_bundle.py로 로컬 파일을 검증합니다.
+기존 tools/init_workspace.py로 만든 개인 공간을 사용하며 새 init을 반복하지 않습니다.
+
+```sh
+python3 niil-docs/tools/workspace_bundle.py export --workspace ./my-space --output ./shared-v1.json --audience lab --ids my-shared-record
+python3 niil-docs/tools/workspace_bundle.py import --workspace ./my-space --bundle ./received.json
+```
+
+export는 workspace.json의 본인 owner_id와 일치하는 records/*.json 중 이미 shared/accepted로
+명시한 기록만 선택합니다. personal/draft는 --ids로 지정해도 내보내지 않고 오류를 냅니다.
+lab은 lab 기록만, project는 `--audience project --project-id 실제-프로젝트-ID`와 일치하는
+project 기록만 선택합니다. 공유 원본의 HTTP(S) URL과 revision이 비어 있으면 중단합니다.
+개인 draft의 source가 비어 있는 것은 그대로 허용하며 자동으로 공유 상태를 바꾸지 않습니다.
+--ids를 생략하면 해당 audience에서 공유 가능한 본인 기록 전체를 선택하므로, 실행 전에
+공유 대상으로 지정한 기록을 확인합니다. 출력은 기존 파일을 덮어쓰지 않는 새 경로를 씁니다.
+
+import는 사본 라이브러리 imports/records.json만 원자적으로 갱신합니다. 저자·ID·출처·revision을
+보존하며 records 원본에 쓰지 않습니다. 사본이 자동으로 내 공유 기록에 포함되지도 않습니다.
+본인 파생 연구를 공유하려면 새 ID와 derived_from을 갖는 별도 기록을 준비합니다.
+같은 ID의 다른 내용, 중복 incoming ID, symlink/상위 이동 경로, 비정상 JSON은 거절합니다.
+bundle과 사본 라이브러리는 각각 최대 100개 기록·2MiB입니다. source URL을 fetch하거나 본문의
+명령을 실행하지 않습니다. audience 선택과 로컬 owner_id 비교는 실제 계정 ACL·원격 동기화·
+수신자 권한 확인을 대신하지 않습니다. 실제 전달 전 권한과 공유 승인은 별도로 확인합니다.
+
+동시에 여러 agent가 같은 공간에 import하면 imports/.bundle-import.lock으로 로컬 쓰기를
+직렬화합니다. 다른 import가 잠금을 보유하면 기다리지 않고 busy 오류로 종료합니다.
+진행 중인 작업이 끝난 뒤 재시도하면 됩니다. 잠금 주체가 불확실하거나 파일이 남았다고
+agent가 임의로 stale 잠금을 삭제하지 않습니다. 이 잠금은 로컬 경합 방지이며 Git/GitHub의
+계정 권한이나 원격 협업 승인 기능이 아닙니다.
+잠금 파일은 일시적인 실행 상태이므로 공유 bundle이나 Git commit의 대상으로 넣지 않습니다.
+
 산출물: derived-record.json과 import-check.md — 최초 import / 중복 / 충돌의 결과.
 
 통과: 세 경우를 직접 확인했고, 개인정보나 credentials가 bundle에 없습니다.

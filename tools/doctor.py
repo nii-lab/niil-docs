@@ -2,6 +2,40 @@
 import argparse,datetime,json,os,shutil,subprocess
 from pathlib import Path
 
+def policy_git_check(workspace):
+    """Inspect only this workspace's policy path; never read policy contents here."""
+    git=shutil.which('git')
+    if not git:
+        return ('unknown','Git이 없어 제외·추적 상태를 확인하지 못함',
+                '로컬 실습은 계속할 수 있습니다. 공유 전 Git 환경에서 개인 정책의 제외·미추적 상태를 확인하세요.')
+    root=str(Path(workspace).resolve())
+    def run(*args):
+        return subprocess.run([git,'-C',root,*args],capture_output=True,text=True,timeout=5)
+    try:
+        repo=run('rev-parse','--is-inside-work-tree')
+        if repo.returncode!=0 or repo.stdout.strip()!='true':
+            return ('unknown','Git 작업 트리를 확인하지 못해 개인 정책의 제외·추적 상태는 미확인',
+                    'Git 미설정 상태에서도 로컬 실습은 계속할 수 있습니다. 공유할 repository를 정한 뒤 재진단하세요.')
+        tracked=run('ls-files','--error-unmatch','--','agent-policy.local.json')
+        if tracked.returncode==0:
+            return ('needs_setup','agent-policy.local.json이 Git에서 추적 중임',
+                    '공유 전 추적 상태와 이력을 확인하고 개인 정책을 공유하지 않도록 정리하세요. 진단은 추적 해제를 수행하지 않습니다.')
+        if tracked.returncode!=1:
+            return ('unknown','Git의 추적 상태를 확인하지 못함',
+                    'Git 작업 트리와 접근 상태를 확인한 뒤 재진단하세요.')
+        ignored=run('check-ignore','--no-index','--quiet','--','agent-policy.local.json')
+        if ignored.returncode==0:
+            return ('ready','Git 실제 판정으로 개인 정책의 제외·미추적 상태를 확인함',
+                    '현재 repository의 제외·추적 검사 결과입니다. 변경 후나 공유 전에 재진단하세요.')
+        if ignored.returncode==1:
+            return ('needs_setup','agent-policy.local.json이 Git 제외 대상이 아님',
+                    '.gitignore 등에 유효한 제외 규칙을 설정하고 부정 규칙이나 덮어쓰기도 확인한 뒤 재진단하세요.')
+        return ('unknown','Git의 제외 판정을 확인하지 못함',
+                'Git 설정과 작업 트리를 확인하고 공유 전에 재진단하세요.')
+    except (OSError,subprocess.TimeoutExpired):
+        return ('unknown','Git 읽기 검사가 실패했거나 시간 초과됨',
+                '로컬 실습은 계속할 수 있습니다. 공유 전 Git 환경을 확인하고 재진단하세요.')
+
 def diagnose(workspace,live=False):
     root=Path(workspace).resolve();checks=[]
     def add(id,title,status,evidence,action):checks.append(dict(id=id,title=title,status=status,evidence=evidence,action=action))
@@ -17,8 +51,8 @@ def diagnose(workspace,live=False):
     except (ValueError,TypeError):policy={};problem='개인 정책 형식 확인 필요'
     configured=not problem and policy.get('configured_by_owner') is True and policy.get('mode')!='unconfigured'
     add('delegation','개인 위임·승인','ready' if configured else 'needs_owner',('본인이 선택한 '+policy['mode']+' 정책. 실제 권한과 별도.' if configured else problem or '정책이 아직 미선택 상태'),'본인이 승인 방식·허용 행동·발신자·프로젝트를 정하고 agent-policy.local.json에 저장하세요.')
-    ignored='agent-policy.local.json' in (root/'.gitignore').read_text() if (root/'.gitignore').is_file() else False
-    add('private_policy','개인 정책 보관','ready' if ignored else 'needs_setup','Git ignore 파일의 명시적 제외 확인' if ignored else '개인 정책 파일 제외 규칙 없음','개인 정책을 공유하지 않도록 .gitignore에 agent-policy.local.json을 추가하세요. 이미 추적 중인 파일은 별도로 확인하세요.')
+    privacy_status,privacy_evidence,privacy_action=policy_git_check(root)
+    add('private_policy','개인 정책 보관',privacy_status,privacy_evidence,privacy_action)
     gh=shutil.which('gh')
     if not live:
         add('github','GitHub 계정·프로젝트 접근','unknown','원격 조회를 수행하지 않음','공동 참여 시 --live-readonly로 본인 인증과 허용 repository 접근을 확인하세요. 로컬 실습은 먼저 진행할 수 있습니다.')
