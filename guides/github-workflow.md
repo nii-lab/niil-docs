@@ -1,11 +1,16 @@
-# 공동 프로젝트와 fork / PR
+# 개인 연구와 공동 코드의 GitHub 운영
+
+평소에는 개인 저장소에서 본인 agent와 연구하고, 공유할 결과와 요청만 Issue 문서로 전달한다.
+Wiki/dashboard는 그 공유 입력의 파생물이다. 개인 연구 결과 공유에는 PR이 필요 없다.
+아래 fork/PR 절차는 공동 코드·템플릿·규약 자체를 변경할 때 적용한다.
 
 GitHub의 부여 가능한 기본 역할은 Read, Triage, Write, Maintain, Admin이다.
 Contributor는 기여자를 설명하는 말이며 별도의 기본 부여 역할이 아니다.
 
 | 역할 | 권장 권한 | 업무 |
 |---|---|---|
-| 일반 참여자 | Read 또는 Triage | 허용된 private fork에서 작업, PR, 논의 |
+| 일반 연구 참여자 | Read | 자기 공유 Issue·요청·댓글, 개인 저장소 연구 |
+| 공동 코드 기여자 | 프로젝트별 승인 | 허용된 fork/branch에서 공동 코드 변경·PR |
 | 검토자 | Write 이상 | required review의 유효한 검토, 코드 소유 범위 검토 |
 | 프로젝트 maintainer | Write/Maintain | PR 통합과 release, 프로젝트 상태 수용 |
 | 조직 관리자 | Admin/Owner | 계정·접근·조직 정책 |
