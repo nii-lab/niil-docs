@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "accountable_owner": "REPLACE-STUDENT-LEAD",
+  "pi_owner": "REPLACE-PI",
+  "maintainers": [],
+  "reviewers": [],
+  "delegated_actions": ["plan_within_goal", "merge_reviewed_pr", "accept_internal_milestone"],
+  "resource_budget": null,
+  "schedule_slack_days": null,
+  "delegation_valid_until": null,
+  "reporting": "daily_digest_and_material_exceptions",
+  "override": "append_decision_with_reason_and_supersedes",
+  "status": "draft_requires_named_owners_and_actual_limits"
+}
