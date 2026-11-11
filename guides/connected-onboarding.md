@@ -62,6 +62,33 @@ lab 공유 확정한 records/ 문서 발행). 발신자의 accept_response는 �
 확인한다. visibility=lab/status=accepted는 공유 확정의 뜻이며 학술 결과 입증 완료가 아니다.
 share로 같은 owner/id의 공유 Issue를 만들고 갱신할 때 version을 올린다. 원본 개인 note는 유지한다.
 
+새 요청은 사용자가 이번 전송을 직접 요청했거나 본인 정책의 전송 범위에 들어갈 때만 보낸다.
+실제 수신자·project·audience를 확인하고 GitHub 도구로 Issue를 생성한다. 이 허브는 lab 공유만
+집계하므로 project-private 자료를 임의로 lab으로 바꾸지 않는다. 다음 JSON은 실제 값을 확인한 뒤
+Issue 본문의 niil-work-order 코드 블록에 넣는 형식이다. placeholder를 그대로 게시하지 않는다.
+
+```json
+{
+  "schema_version": 1,
+  "request_id": "REPLACE-WITH-UNIQUE-ID",
+  "from_owner": "REPLACE-WITH-ACTUAL-SENDER",
+  "to_owner": "REPLACE-WITH-REGISTERED-RECIPIENT",
+  "project_id": "REPLACE-WITH-REGISTERED-PROJECT",
+  "visibility": "lab",
+  "title": "요청 제목",
+  "task_definition": "목적, 제공 자료와 버전, 수행할 작업과 범위",
+  "expected_output": "산출물, 검증 방법과 완료 기준",
+  "guide_revision": "v1",
+  "requested_actions": ["read_shared", "respond"]
+}
+```
+
+기존 work-order.example.json은 로컬 계획·진단용이다. 실제 Issue로 보낼 때 task_id는 request_id,
+goal/inputs는 task_definition, deliverables/definition_of_done/verification은 expected_output으로
+연결하고 guide_revision은 유지한다. 예시를 실제 요청으로 간주하지 않는다. 전송 저장소는 등록된
+허브와 실제 프로젝트 범위를 확인하며, 비공개 개인 대화나 정책 파일을 복사하지 않는다. 본문은
+구조화된 도구 인자 또는 UTF-8 body 파일로 전달하고 셸 코드로 이어 붙이지 않는다.
+
 요청을 받으면 guide SHA와 실제 발신자·project·요청 행동을 확인한다. 자동 범위가 부족하면
 needs_owner로 남기고 본인에게 필요한 결정만 묻는다. manual에서는 원격 기록도 먼저 확인받는다.
 사용자 답변 없이 승인 파일이나 승인 이력을 만들지 않는다. 일회 결정은 그 요청/guide/행동/이벤트에
