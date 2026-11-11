@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "nii-lab/niil-internal",
-  "revision": "25490cd20a35871586c54dbb347459c493267042",
+  "revision": "d0bcb787c000b9c4095537034d40b57cdec65404",
   "protocol_version": "1.0",
   "files": [
     "services/github_hub/participant.py",
