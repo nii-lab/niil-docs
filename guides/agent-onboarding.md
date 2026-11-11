@@ -20,6 +20,11 @@ python3 niil-docs/tools/init_workspace.py --kind member --target ./my-niil-works
 cd my-niil-workspace
 ```
 
+GitHub 계정이 아직 없으면 MY-GITHUB-ID 대신 LOCAL-ONLY를 사용해 로컬만 진행합니다.
+Git이 없다면 공개 repo의 Code → Download ZIP을 풀고 해당 폴더의 tools/init_workspace.py를 사용합니다.
+생성 전 LOCAL 원본은 templates/member/LOCAL.md, 생성 후에는 개인 공간의 LOCAL.md입니다.
+init_workspace.py만 단독 다운로드하면 templates 경로가 없어 동작하지 않습니다.
+
 MY-GITHUB-ID를 본인 계정으로 바꿉니다. 생성 도구는 비어 있는 대상 폴더만 사용합니다.
 공동 프로젝트 starter는 실제 프로젝트 책임자가 역할·검토자·위임 한도를 채워 사용합니다.
 
