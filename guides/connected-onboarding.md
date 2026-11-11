@@ -6,14 +6,17 @@
 ## 1. 사람·개인 공간·접근 확인
 
 기존 GitHub 인증으로 실제 login과 numeric ID를 확인한다. workspace.json의 owner_id를
-그 login과 맞춘다. 개인 repository는 본인 계정 아래 PRIVATE를 기본으로 하고 실제 collaborator를
-확인한다. 조직의 공용 repo 안에 개인 폴더를 만드는 것으로 개인 비공개가 구현되지는 않는다.
+그 login과 맞춘다. 개인 연구 repository는 nii-lab 아래의 독립 Private 저장소를 기본으로 한다.
+교수 Admin/담당자 Write/기타 조직 멤버 Read를 실제 권한으로 확인한다. repo owner가 nii-lab이어도
+기록 owner_id는 사람의 실제 GitHub login이다. private fork를 개인 연구 정본으로 쓰지 않는다.
+[저장소·권한 안내](repository-access.md)에 따라 관리자에게 생성/담당자 연결을 요청한다.
 
 처음 참여하거나 담당자를 모르면 [참여 접수 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/participation.md)의 공개 경로로 연결을 요청한다.
 조직 멤버십, 공용 허브 읽기, 참여할 project 등록은 별개다. 초대/등록이 없으면 운영자에게
 실제 login·project만 전달하고 needs_access로 멈춘다. 운영자는 멤버십·프로젝트 책임을 확인한 뒤
 numeric ID와 project를 registry에 PR로 등록한다. 학생 agent가 임의 초대·등록·권한 확대를 하지 않는다.
-졸업생도 같은 절차를 사용한다. 등록 때문에 개인 연구 repository를 운영자에게 통째로 제공하지 않는다.
+졸업생도 같은 절차를 사용한다. 혼자만 볼 자료는 로컬에 보존하고 연구실 저장소에는 멤버 열람을
+전제로 기록한다. agent 집계는 저장소 전체를 수집하지 않고 공유 승인한 Issue만 읽는다.
 
 ## 2. 필요한 연결 도구만 준비
 
@@ -125,3 +128,10 @@ source-bound 해석 → 선택한 주기의 web 반영. 화면 지연을 권한 
 M0~M8의 실제 근거를 남기며 passed_local과 passed_live를 나눈다. 계정이 다른 두 역할의
 로컬/API fixture 검사는 실제 두 참여자의 승인을 대신하지 않는다. 실제 다른 참여자의 응답은
 그 계정이 합류한 뒤에만 검증 완료로 보고한다. 웹에는 공유한 요약·상태·원본 링크만 반영한다.
+
+## 로그인 후 내 Issue 연결
+
+포털 로그인과 참여자 등록은 별도다. 최초 등록 때 실제 GitHub 계정과 본인 Access 세션을
+관리자와 확인해 연결하면 이후 본인 Issue가 기본으로 열린다. 이메일·표시 이름으로 다른 사람을
+추정하지 않는다. 학생/졸업생은 동료를 선택할 수 있고 교수의 개인 Issue 대상은 목록에서 제외한다.
+교수는 본인과 학생 현황을 선택한다. 화면 표시 규칙과 GitHub의 실제 Read 권한은 구분한다.

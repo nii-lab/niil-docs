@@ -17,15 +17,25 @@ current.md를 읽는다. 사용자의 현재 지시와 계정 권한 안에서 �
 ## 공간과 공유
 
 - 내 workspace에는 탐색·메모·실험·초안을 기록한다. 개인 메모의 기본 visibility는
-  personal이다. 연구실 공유용 기록은 visibility=lab으로 명시해 내보낸다.
+  personal이다. 이 표시는 Wiki 집계 범위이며 GitHub 열람 권한은 아니다. nii-lab 연구 저장소에
+  push한 파일은 다른 멤버도 읽는다. 혼자만 볼 초안은 ignored .local/private/에 둔다.
+  연구실 공유용 기록은 visibility=lab으로 명시해 내보낸다.
 - project 범위 자료는 해당 프로젝트 접근 권한을 가진 수신자에게만 공유한다.
   private Git repository 자체는 같은 repository 내 personal 파일의 열람을 막지 않는다.
-  진정한 비공개 초안은 별도 private repository 또는 로컬 공간에서 관리한다.
+  혼자만 볼 초안은 ignored 로컬 공간에서 관리한다.
 - 타인의 원본은 읽고 출처를 보존해 내 공간으로 가져온다. 수정 제안은 PR 또는 요청으로
   전달한다. 다른 학생의 저장소 쓰기 권한은 기본으로 요청하지 않는다.
 - 연구 결과의 관찰·해석·미확정을 구분한다. 실험 실패·한계도 유효한 기록으로 남긴다.
 - 공유 전 대상 audience, 첨부파일·이미지·NAS 링크의 접근성, 개인정보·자격 증명 포함
   여부를 확인한다. 원본 접근 범위보다 넓은 요약·검색 색인을 만들지 않는다.
+
+## 저장소 기본값
+
+연구실 연구 저장소는 nii-lab 소유 Private, 교수 Admin, 담당자 Write, 기타 조직 멤버 Read를 기본으로 한다.
+담당자별 개인 정본은 독립 repository이며 owner_id는 계속 실제 사람의 GitHub login이다.
+개인 기록은 직접 commit/push하고 공동 코드 변경은 fork/branch→PR로 제안한다.
+신규 repo와 담당자 Write 연결은 관리자에게 요청하고 공개 변경/초대/권한을 임의로 확대하지 않는다.
+등록과 세부 절차는 공개 guides/repository-access.md를 필요한 단계에서 읽는다.
 
 ## 평소 연구와 통합
 

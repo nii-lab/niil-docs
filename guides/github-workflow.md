@@ -9,8 +9,9 @@ Contributor는 기여자를 설명하는 말이며 별도의 기본 부여 역�
 
 | 역할 | 권장 권한 | 업무 |
 |---|---|---|
-| 일반 연구 참여자 | Read | 자기 공유 Issue·요청·댓글, 개인 저장소 연구 |
-| 공동 코드 기여자 | 프로젝트별 승인 | 허용된 fork/branch에서 공동 코드 변경·PR |
+| 일반 연구 참여자 | 조직 기본 Read | 읽기·공유 Issue·요청·댓글, 공동 코드 fork→PR |
+| 개인 연구 저장소 담당자 | 해당 repo Write | 자기 연구 원본 직접 기록·공유 |
+| 공동 프로젝트 담당자 | 해당 repo Write | 작업 branch·PR, fork PR 검토 |
 | 검토자 | Write 이상 | required review의 유효한 검토, 코드 소유 범위 검토 |
 | 프로젝트 maintainer | Write/Maintain | PR 통합과 release, 프로젝트 상태 수용 |
 | 조직 관리자 | Admin/Owner | 계정·접근·조직 정책 |
@@ -19,7 +20,10 @@ Contributor는 기여자를 설명하는 말이며 별도의 기본 부여 역�
 Read/Triage 참여자의 의견도 유용하지만 GitHub required approval로 집계되는 검토자 권한은
 별도 확인한다. Write를 부여하면 repository 전체 쓰기 권한이 생기므로 다른 학생의 개인
 repository 격리와 같은 방식으로 취급하지 않는다. main은 PR과 필수 check, 독립 승인으로
-보호하고 관리자 bypass 범위를 검토한다. 이 시안은 원격 권한·ruleset을 변경하지 않는다.
+보호한다. NiiL 기본은 조직 소유 Private/교수 Admin/담당자 Write/나머지 멤버 Read다.
+개인 연구 저장소는 담당자의 직접 기록을 허용하고, 공동 원본 main은 PR 경로로 유지한다.
+현재 실제 관리 계정 한 명으로 운영하는 저장소는 승인 인원0일 수 있다. AI 자체 검토를
+독립 인간 승인으로 세지 않으며 프로젝트별 실제 branch protection을 확인한다.
 
 ## 첫 PR 예시
 
@@ -42,7 +46,7 @@ PR base는 LAB-ORG/PROJECT의 main, head는 내 fork branch. 대용량 NAS 자�
 연결한다. main 이름이 다르면 실제 default branch를 사용한다. 초기 clone/설치도
 사용자의 작업 범위와 계정 정책에 맞춰 수행한다.
 
-private fork는 조직·계정 정책에 따라 허용되지 않을 수 있다. 사용 가능 여부를 확인하고,
+공동 비공개 저장소는 조직과 저장소 양쪽에서 fork를 허용한다. 실제 설정을 확인하고,
 대안은 승인된 기관 내 fork 또는 공용 repo의 작업 branch다. private fork는 독립적인
 개인 비공개 메모 공간이 아니다. 원본 접근 종료 때 fork가 영향을 받을 수 있다.
 
@@ -56,3 +60,12 @@ private fork는 조직·계정 정책에 따라 허용되지 않을 수 있다. 
 
 - https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization
 - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks
+
+## Fork의 검증 실행
+
+공동 private repo의 fork PR 검증은 담당자의 실행 승인 후 read-only GITHUB_TOKEN으로 수행한다.
+fork PR에는 쓰기 토큰·secrets·variables를 전달하지 않는다. 승인 대기는 정상 상태이며 check를
+통과한 것으로 표시하지 않는다. 검증 실행 승인과 코드 수용/merge는 별개다. 개인 연구 정본은
+별도 독립repo이며, private fork의 team 권한 상속을 ‘나만 수정하는 개인 공간’으로 오인하지 않는다.
+
+실제 생성·권한 부여·이관 절차는 [저장소·권한 안내](repository-access.md)에 있다.

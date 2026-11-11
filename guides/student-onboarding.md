@@ -13,9 +13,11 @@ current.md에는 관심 질문·현재 이해·다음 작은 작업을 적고, r
 
 AI에게: “내 개인 공간과 첫 기록을 만들어줘. 실제 확인과 가정을 구분하고 공유는 기다려줘.”
 
-개인 GitHub repository는 본인 계정의 **PRIVATE, 본인만 접근**을 기본으로 한다.
-동료는 공용 Issue에 명시적으로 공유한 문서를 읽는다. 같은 공용 repo의 personal 폴더나
-visibility 표시만으로 열람이 차단되는 것은 아니다.
+연구실 연구용 개인 저장소는 **nii-lab 소유의 독립 Private repository**를 기본으로 한다.
+교수는 Admin, 담당자는 Write, 나머지 조직 멤버는 Read다. 담당자가 자기 저장소에 직접 기록하며
+개인 연구의 매 기록마다 PR을 만들지는 않는다. 혼자만 볼 초안·agent 정책·비밀값은 ignored 로컬
+공간에 둔다. Private은 연구실 밖 비공개이며 개인 폴더/visibility만으로 멤버의 열람이 차단되지는 않는다.
+Wiki·대시보드는 여전히 명시적으로 공유한 Issue만 집계한다. [저장소·권한 안내](repository-access.md)를 따른다.
 
 ## 10–15분 · 내 위임을 선택
 
