@@ -24,7 +24,6 @@ def create(kind, target, owner):
     for name in ('notes', 'records', 'results'):
         (target / name).mkdir(exist_ok=True)
         (target / name / '.gitkeep').touch()
-    (target / '.gitignore').write_text('.env\n.local/\nagent-policy.local.json\n__pycache__/\n.DS_Store\n')
     (target / 'workspace.json').write_text(json.dumps({
         'schema_version': 1, 'template_version': '0.1',
         'kind': kind, 'owner_id': owner, 'default_visibility': 'personal' if kind == 'member' else 'project'
