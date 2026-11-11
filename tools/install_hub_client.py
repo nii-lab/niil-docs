@@ -52,13 +52,18 @@ def install(workspace,revision):
     entry=registry.get('participants',{}).get(owner,{})
     if registry.get('repository')!=REPOSITORY or entry.get('github_id')!=profile['id'] or not entry.get('projects'):
         raise ValueError('operator registration is required; submit the owner ID/project for review instead of self-registering')
+    client_root=workspace/'.local/niil-client'
+    if not client_root.resolve().is_relative_to(workspace):raise ValueError('client output must remain inside the personal workspace')
+    target=client_root/(revision[:12]+'-'+registry_revision[:12])
+    for relative in [str((target/name).relative_to(workspace)) for name in (*FILES,'participants.json','receipt.json')]+['.local/niil-client/current.json']:
+        tracked=subprocess.run(['git','-C',str(workspace),'ls-files','--error-unmatch','--',relative],capture_output=True,timeout=5)
+        ignored=subprocess.run(['git','-C',str(workspace),'check-ignore','--no-index','--quiet','--',relative],capture_output=True,timeout=5)
+        if tracked.returncode!=1 or ignored.returncode!=0:
+            raise ValueError('every client output must be untracked and Git-ignored; check negation rules')
     files={name:fetch_file(source,revision) for name,source in FILES.items()}
     files['participants.json']=registry_bytes
     checksums={name:hashlib.sha256(data).hexdigest() for name,data in files.items()}
-    client_root=workspace/'.local/niil-client'
-    if not client_root.resolve().is_relative_to(workspace):raise ValueError('client output must remain inside the personal workspace')
     client_root.mkdir(parents=True,exist_ok=True,mode=0o700)
-    target=client_root/(revision[:12]+'-'+registry_revision[:12])
     receipt={'schema_version':1,'owner_id':owner,'github_id':profile['id'],'repository':REPOSITORY,
       'code_revision':revision,'registry_revision':registry_revision,'sha256':checksums,
       'client_executed':False,'policy_changed':False,'remote_writes':False}

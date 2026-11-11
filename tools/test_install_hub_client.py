@@ -69,6 +69,14 @@ class Install(unittest.TestCase):
     def test_unignored_output_rejected(self):
         (self.root/'.gitignore').write_text('agent-policy.local.json\n')
         with self.assertRaisesRegex(ValueError,'Git-ignored'):self.run_install()
+    def test_negated_code_path_cannot_pass_a_generic_ignore_probe(self):
+        (self.root/'.gitignore').write_text('.local/*\n!.local/niil-client/\n.local/niil-client/*\n!.local/niil-client/*/\n.local/niil-client/*/*\n!.local/niil-client/*/participant.py\n')
+        with self.assertRaisesRegex(ValueError,'every client output'):self.run_install()
+        self.assertFalse((self.root/'.local/niil-client').exists())
+    def test_already_tracked_pointer_is_not_marked_private(self):
+        self.run_install()
+        subprocess.run(['git','-C',str(self.root),'add','-f','.local/niil-client/current.json'],check=True)
+        with self.assertRaisesRegex(ValueError,'every client output'):self.run_install()
     def test_bad_blob_hash_is_rejected_before_install(self):
         path=f'repos/{REPOSITORY}/contents/services/github_hub/hub.py?ref={CODE}'
         self.mutations[path]={'encoding':'base64','content':base64.b64encode(b'code').decode(),'sha':'0'*40}
