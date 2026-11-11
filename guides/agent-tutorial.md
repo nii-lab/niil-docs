@@ -186,7 +186,7 @@ inbox/outbox를 확인해도 이 미션을 진행할 수 있습니다. 받은 �
 | B · 졸업생 복귀 | 기존 개인 Git, 다른 로그인, 수정된 client, 갱신된 registry | 계정 진단, 수정본 백업/검토, 새 설치 receipt, 기존 기록 | 다른 계정·수정 client에서 중단. 개인 기록과 이전 snapshot 보존. 재설치 no-op |
 | C · 요청 변경과 보완 | 요청 v1 응답, 변경된 v2 guide, 같은 v2의 추가 보완 | v1/v2 차이, 예전 결정 거절, 새 결정, 재응답과 발신 수용 | 변경 guide에 옛 승인 재사용 없음. 같은 응답 재전송 no-op. 원본 이력 유지 |
 
-A: manual에서 participant share는 자동 게시를 거절합니다. [연결 안내](connected-onboarding.md)의
+A: manual에서 participant share는 자동 게시를 거절합니다. [연결 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/connected-onboarding.md)의
 일회 게시 경로로 정확한 내용·대상에 대한 본인 확인을 받고 일반 GitHub 도구로 전달합니다.
 거절을 없애기 위해 mode를 allowlist로 바꾸지 않습니다. needs_owner 댓글도 원격 게시입니다.
 
