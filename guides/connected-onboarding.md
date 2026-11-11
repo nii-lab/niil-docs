@@ -41,6 +41,11 @@ python3 CLIENT/participant.py --workspace /실제/개인/공간 --registry CLIEN
 설치 후 새 참여자/프로젝트가 추가되면 설치 명령을 다시 실행해 registry snapshot을 갱신한다.
 코드 버전은 공개 release pin을 따르고, 임의 수정한 client는 자동으로 덮어쓰지 않는다.
 
+복귀 시 initializer를 기존 폴더에 재실행하지 않는다. 다른 로그인은 owner_id 변경으로
+맞추지 않고 실제 인증을 바로잡는다. 수정된 client는 설치가 중단되며 변경 내용을 보존하고
+본인이 검토·복원/업데이트를 선택한 뒤 재시도한다. 정책/결정 파일은 Git에 없으므로 본인의
+안전한 백업으로 복구하거나 다시 선택한다. 재설치가 개인 승인을 복원했다고 보고하지 않는다.
+
 ## 3. 본인이 승인·처리 주기 선택
 
 agent-policy.example.json을 설명하고 본인이 선택한 값을 로컬 agent-policy.local.json에 저장한다.
@@ -61,6 +66,14 @@ lab 공유 확정한 records/ 문서 발행). 발신자의 accept_response는 �
 개인 records/의 본인 결과 하나를 골라 공유 scope, 원본 commit, 관찰·해석·한계·다음 행동을
 확인한다. visibility=lab/status=accepted는 공유 확정의 뜻이며 학술 결과 입증 완료가 아니다.
 첫 공유의 version은 1이다. share로 같은 owner/id의 공유 Issue를 만들고 갱신할 때 version을 올린다. 원본 개인 note는 유지한다.
+
+manual에서 현재 client의 share는 일회 결정 옵션을 지원하지 않아 게시를 거절한다.
+이때 정확한 기록·대상 Issue와 공개 범위를 먼저 본인에게 보여 주고, **이번 전송을 실제로
+승인받은 후** 일반 GitHub Issue 도구로 같은 niil-record 형식을 게시/갱신한다. 게시 전 실제
+저장소·작성자·owner/id를 대조해 기존 Issue가 있으면 재사용하고, 내용이 같으면 생략한다.
+응답이 끊겨도 생성 여부를 다시 조회한 뒤 재시도한다. 지원 도구가 없으면 초안을 보존하고
+needs_access로 남긴다. manual을 자동 모드로 변경해 우회하지 않는다. 요청 event는 실제
+본인 결정을 받은 뒤 이 안내의 --decision 경로를 사용할 수 있으며 기존 정책은 유지한다.
 
 새 요청은 사용자가 이번 전송을 직접 요청했거나 본인 정책의 전송 범위에 들어갈 때만 보낸다.
 실제 수신자·project·audience를 확인하고 GitHub 도구로 Issue를 생성한다. 이 허브는 lab 공유만
@@ -96,6 +109,11 @@ needs_owner로 남기고 본인에게 필요한 결정만 묻는다. manual에�
 
 수신→진행→응답은 수신자, 수용/취소는 발신자가 기록한다. inbox와 outbox를 구분한다.
 승인 대기 뒤 재개는 새 event, 현재 상태를 재전송하면 no-op다. 원본 guide가 바뀌면 재검토한다.
+
+요청 guide가 바뀌면 예전 결정·응답을 새 guide에 재사용하지 않는다. 원래 댓글은 보존되지만
+현재 진행 상태에서 제외되고 stale 진단이 표시될 수 있다. 새 범위를 읽고 필요한 새 결정을
+받아 재개한다. 원본/해석/웹의 갱신은 순차적이다: 공유 Issue → GitHub Actions 집계 →
+source-bound 해석 → 선택한 주기의 web 반영. 화면 지연을 권한 문제로 단정하지 않는다.
 
 ## 5. 준비 상태와 완료 보고
 
