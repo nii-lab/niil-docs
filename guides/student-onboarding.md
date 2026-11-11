@@ -6,7 +6,7 @@
 
 ## 0–10분 · 개인 공간과 첫 기록
 
-사용 중인 agent에게 [START-HERE](../START-HERE.md)를 읽혀 새 폴더를 준비한다.
+사용 중인 agent에게 [START-HERE](https://github.com/nii-lab/niil-docs/blob/main/START-HERE.md)를 읽혀 새 폴더를 준비한다.
 포털 로그인은 선행 조건이 아니다. 기존 공간이 있으면 새 starter로 덮어쓰지 않는다.
 current.md에는 관심 질문·현재 이해·다음 작은 작업을 적고, records/에 첫 기록을 만든다.
 실행하지 않은 실험은 결과로 쓰지 않는다.
@@ -30,7 +30,7 @@ manual이면 공유·답변·승인 대기 댓글의 원격 게시도 먼저 확
 
 ## 15–25분 · 연결과 첫 공유
 
-[실제 연결 안내](connected-onboarding.md)에 따라 본인 GitHub login과 numeric ID,
+[실제 연결 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/connected-onboarding.md)에 따라 본인 GitHub login과 numeric ID,
 조직 멤버십, private hub Read, project 등록을 확인한다. 초대 대기·등록 누락이면
 필요한 login/project만 운영자에게 전달하고 needs_access로 보존한다. 개인 초안은 계속 쓸 수 있다.
 
@@ -60,7 +60,7 @@ Issue 생성이 상대의 Codex/Claude를 즉시 실행시키지는 않는다. �
 
 ## 한 번 더 연습하기
 
-[Agent tutorial의 세 가지 분기 실습](agent-tutorial.md#세-가지-분기-실습)을 본인 상황에 맞게
+[Agent tutorial의 세 가지 분기 실습](https://github.com/nii-lab/niil-docs/blob/main/guides/agent-tutorial.md#세-가지-분기-실습)을 본인 상황에 맞게
 하나 골라 연습한다. 각 실습은 모의 인물·승인으로 로컬에서 하며 실제 권한을 대신하지 않는다.
 
 | 막힌 상황 | 다음 행동 |
