@@ -9,6 +9,7 @@
 그 login과 맞춘다. 개인 repository는 본인 계정 아래 PRIVATE를 기본으로 하고 실제 collaborator를
 확인한다. 조직의 공용 repo 안에 개인 폴더를 만드는 것으로 개인 비공개가 구현되지는 않는다.
 
+처음 참여하거나 담당자를 모르면 [참여 접수 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/participation.md)의 공개 경로로 연결을 요청한다.
 조직 멤버십, 공용 허브 읽기, 참여할 project 등록은 별개다. 초대/등록이 없으면 운영자에게
 실제 login·project만 전달하고 needs_access로 멈춘다. 운영자는 멤버십·프로젝트 책임을 확인한 뒤
 numeric ID와 project를 registry에 PR로 등록한다. 학생 agent가 임의 초대·등록·권한 확대를 하지 않는다.

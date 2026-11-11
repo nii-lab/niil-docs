@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "simulation_only": true,
+  "exported_at": "2026-11-11T00:00:00+09:00",
+  "records": [
+    {
+      "schema_version": 1,
+      "id": "EXAMPLE-FIRST-IMPORT-001",
+      "type": "note",
+      "title": "공개 매뉴얼 읽기 · 가상 import 실습",
+      "owner_id": "EXAMPLE-AUTHOR",
+      "project_id": null,
+      "visibility": "lab",
+      "status": "shared",
+      "updated_at": "2026-11-11T00:00:00+09:00",
+      "summary": "공개 시작 안내를 읽고 개인 공간부터 준비하는 가상 예시다.",
+      "body": "가상 교육용 기록이다. 로봇이나 simulator를 실행하지 않았다. 개인 공간·다음 질문·본인이 고른 위임을 준비한다. 이 author와 ID는 운영 계정이 아니다.",
+      "source": {
+        "uri": "https://github.com/nii-lab/niil-docs/blob/ea4853318b2233748e9f8d58726f248f71ae5071/START-HERE.md",
+        "revision": "ea4853318b2233748e9f8d58726f248f71ae5071",
+        "example": true
+      },
+      "evidence": [],
+      "derived_from": [],
+      "version": 1,
+      "next_action": "내 관심 질문은 별도 personal 기록에 적고 실제 공유는 기다린다."
+    }
+  ]
+}

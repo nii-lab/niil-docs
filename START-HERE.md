@@ -21,7 +21,8 @@ https://raw.githubusercontent.com/nii-lab/niil-docs/main/START-HERE.md 를 읽�
 2. 사용자의 현재 환경에서 할 수 있는 일을 먼저 확인한다. 처음에는 사용 중인 agent와
    작업할 컴퓨터/OS만 확인하고, 알아낼 수 있는 정보를 다시 묻지 않는다. GitHub 계정은
    공동 참여가 필요할 때 확인한다. 계정 생성·로그인에서 사용자가 직접 해야 하는 단계를 안내한다.
-3. 새 로컬 폴더에 개인 starter를 준비한다. 기존 파일을 덮어쓰지 않는다. 설치되지 않은
+3. 새 로컬 폴더에 개인 starter를 준비한다. 생성 전 개인 설정의 원본 위치는
+   templates/member/LOCAL.md다(templates/common/LOCAL.md는 없다). 생성 후에만 내 LOCAL.md를 읽는다. 기존 파일을 덮어쓰지 않는다. 설치되지 않은
    프로그램을 먼저 잔뜩 요구하지 않는다. 가능하면 ZIP과 텍스트 편집만으로 시작한다.
 4. owner_id와 실제 이름이 준비되지 않았다면 LOCAL-ONLY 임시 식별자로 로컬 실습한다.
    이 임시 ID를 운영 계정으로 등록하거나 외부에 게시하지 않는다. 나중에 GitHub 계정과 연결한다.
@@ -41,6 +42,19 @@ https://raw.githubusercontent.com/nii-lab/niil-docs/main/START-HERE.md 를 읽�
 내 공간이 생겼고, 다음에 할 일이 적힌 기록 하나가 있으며, 공유 전 내가 확인할 범위를
 정했습니다. 실제 초대나 원격 실행은 다음 단계여도 됩니다. Agent 결제와 별개로 프로젝트
 초대·GitHub 인증·컴퓨터 실행 환경은 본인에게 연결해야 합니다. Agent가 그 과정을 안내합니다.
+
+## 계정이 없어도 시작하는 정확한 경로
+
+공개 repository의 [공간 준비 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/agent-onboarding.md)를 따라
+공통 templates/common/과 개인 templates/member/를 함께 준비한다. init_workspace.py 한 파일만
+받으면 상대 경로의 templates가 없어 실행되지 않는다. 공개 repo 전체를 clone하거나 GitHub의
+Code → Download ZIP으로 받은 뒤, 그 안의 tools/init_workspace.py를 사용한다. Python/Git이
+없으면 같은 두 template 폴더의 파일을 새 개인 폴더에 복사하고 실제 미완료 도구 검사는 남긴다.
+GitHub 계정이 없을 때 owner는 LOCAL-ONLY로만 사용한다. 이것은 운영 등록이 아니다.
+
+가입·초대나 담당자가 필요한 단계는 [참여 접수 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/participation.md)를 따른다.
+처음 보는 사람도 공개 접수 경로를 사용할 수 있지만 실제 승인은 운영자가 별도로 검토한다.
+연결되지 않은 계정/권한을 성공으로 표시하지 않는다.
 
 ## 촘촘한 실습
 

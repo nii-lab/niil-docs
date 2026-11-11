@@ -1,0 +1,31 @@
+name: 참여 연결 요청
+description: 신규·졸업생·협력 참여를 위한 공개 안내 요청 (자동 가입 아님)
+title: "[참여 연결] 안내 요청"
+body:
+  - type: markdown
+    attributes:
+      value: "이 Issue는 공개입니다. 학번·연락처·비공개 연구·개인 저장소·정책·토큰을 쓰지 마세요. 접수는 초대/권한 승인이 아닙니다."
+  - type: input
+    id: github_login
+    attributes:
+      label: GitHub login
+      description: 이 요청을 작성하는 본인의 공개 GitHub 계정
+    validations:
+      required: true
+  - type: dropdown
+    id: participation
+    attributes:
+      label: 참여 형태
+      options:
+        - 재학생
+        - 졸업생
+        - 협력 희망
+    validations:
+      required: true
+  - type: textarea
+    id: interest
+    attributes:
+      label: 공개 가능한 관심 주제와 필요한 안내
+      description: 한두 문장으로 적고 프로젝트를 모르면 미정으로 표시해 주세요.
+    validations:
+      required: true

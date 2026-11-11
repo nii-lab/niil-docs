@@ -10,7 +10,8 @@
 ## 단일 진입과 버전
 
 AGENTS.md에서 시작하고 이 문서와 LOCAL.md, current.md를 읽는다. 첫 세션에는
-AGENT-ONBOARDING.md를 따른다. protocol_version은 1.0이다. major가 다른 요청은 호환성을
+AGENT-ONBOARDING.md를 따른다. 아직 공간이 없다면 공개 START-HERE에서 starter를 먼저 준비한다.
+생성 전 LOCAL 원본은 templates/member/LOCAL.md이며 생성 후에 내 LOCAL.md를 읽는다. protocol_version은 1.0이다. major가 다른 요청은 호환성을
 확인하고 변환한다. 문서 원본은 nii-lab/niil-docs, 과학적 원본은 각 프로젝트다.
 개인 정책은 로컬의 agent-policy.local.json에 두며 공개 저장소에 올리지 않는다.
 
@@ -47,11 +48,13 @@ thread에서 구체적인 보완을 요청한다. 이미 수행한 task/revision
 
 ## 실시간 전달
 
-GitHub Webhook → 비공개 중계 → 개인 연결기의 대기 연결을 사용한다. Issue는 기록,
-중계는 배달, 개인 agent는 판단·실행을 맡는다. 개인 연결기가 켜져 있을 때 수신 신호를
-즉시 전달한다. 새 agent 실행/기존 작업 인계는 개인이 선택한 runner에서 수행한다.
-GitHub 알림과 수동 확인은 장애·오프라인 대체 경로다. 개인 승인 대기나 꺼진 컴퓨터의
-실시간 작업 완료를 보장하지 않는다. 자동 실행 설정은 연결기 설치만으로 활성화하지 않는다.
+수동 확인 또는 본인이 고른 예약으로 Issue를 읽는 것도 정상 운영 경로다. Issue 생성은
+기록의 도착이며 개인 agent의 즉시 실행을 보장하지 않는다. 실시간 push는 본인이 선택하고
+운영자가 연결을 제공한 경우에만 GitHub Webhook → 비공개 중계 → 개인 연결기를 추가한다.
+연결기가 켜져 있을 때 수신 신호를 전달하고 새 agent 실행/인계는 본인이 고른 runner가 맡는다.
+manual에서는 needs_owner 댓글도 본인 확인 전 자동 게시하지 않고 우선 로컬에 대기를 기록한다.
+꺼진 컴퓨터·개인 승인 대기의 실시간 완료를 보장하지 않으며 선택하지 않은 push는 첫날 필수 조건이 아니다.
+연결기 설치만으로 자동 실행을 허용하지 않는다.
 
 ## 모두가 유지하는 시스템
 

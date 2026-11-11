@@ -28,7 +28,8 @@ passed_local / passed_live / needs_owner / needs_access입니다. 로컬 모의�
 
 ## M1 · 계약을 읽고 설명하기
 
-입력: AGENTS.md, SYSTEM-PROTOCOL.md, GOVERNANCE.md, LOCAL.md.
+입력: templates/common/의 AGENTS.md, SYSTEM-PROTOCOL.md, GOVERNANCE.md와
+templates/member/LOCAL.md. 생성 후에는 개인 공간의 해당 파일을 읽습니다.
 
 행동: 공통 요청 형식과 실제 권한, 개인 승인 정책을 구분해 설명합니다. 자신의 사용자와
 다른 agent의 요청 중 누가 위임 범위를 정하는지 확인합니다. 상위 지시·override가 있으면
@@ -59,6 +60,9 @@ GitHub ID가 없으면 LOCAL-ONLY 식별자를 로컬 실습에만 씁니다.
 행동: manual / allowlist / auto_within_scope 중 사용자가 선택하게 합니다. 허용 repository,
 발신자, 행동과 알림·가용 시간을 함께 정합니다. 운영 범위 미정이면 unconfigured로 둡니다.
 개인 정책은 agent-policy.local.json에 저장하고 Git ignore 여부를 확인합니다.
+availability/notifications/runner의 null은 미선택입니다. 사용자가 선택한 경우에만 설명 가능한
+문자열(예: availability="on_demand", notifications="ask_in_session")로 기록하며,
+이 metadata가 예약·메시지 전송·runner를 자동 생성하지는 않습니다. mode 선택과 시간 선택은 별개입니다.
 
 산출물: 개인 정책과 policy-readback.md. 예: 자료 조회·로컬 검증만 자동, 원격 게시 별도 확인.
 
@@ -85,17 +89,33 @@ Python이 준비된 환경에서는 tools/policy_check.py로 정책의 사전 �
 
 ## M5 · 출처 있는 import와 중복 연습
 
-입력: 공개 예시 기록 한 건.
+입력: [바로 사용할 공개 예시 bundle](https://github.com/nii-lab/niil-docs/blob/main/examples/first-import.bundle.json).
+이 파일은 schema_version=1의 가상 기록이며 실제 학생·연구 성과·접근 권한이 아닙니다.
+같은 공개 snapshot에 포함된 examples/first-import.bundle.json을 사용하면 test 코드를 찾거나
+placeholder를 채울 필요가 없습니다. record.example.json은 본인 기록을 만드는 틀입니다.
 
 행동: 원본 ID·작성자·revision을 남기고 내 파생 작업에는 새 ID를 부여합니다. 같은 bundle을
 다시 가져올 때 중복을 생략하고, 같은 ID의 다른 내용은 충돌로 표시합니다. 원본을 덮어쓰지 않습니다.
 
 Python이 준비됐다면 공개 원본의 tools/workspace_bundle.py로 로컬 파일을 검증합니다.
 기존 tools/init_workspace.py로 만든 개인 공간을 사용하며 새 init을 반복하지 않습니다.
+macOS의 /tmp 같은 symlink 경로는 먼저 실제 경로(Path.resolve)를 확인해 도구에 전달합니다.
+symlink 거절을 피하려고 검사를 끄지 않습니다. 읽은 원본 URL/commit과 실행 경로를 남깁니다.
+
+```sh
+python3 niil-docs/tools/workspace_bundle.py import --workspace ./my-space --bundle ./niil-docs/examples/first-import.bundle.json
+python3 niil-docs/tools/workspace_bundle.py import --workspace ./my-space --bundle ./niil-docs/examples/first-import.bundle.json
+```
+
+위 두 명령은 niil-docs와 my-space가 있는 부모 폴더 기준입니다. 첫 import added=1,
+두 번째 skipped=1과 같은 사본 바이트를 확인합니다. 원본 bundle을 보존한 채 별도 사본에서
+같은 ID의 summary만 바꾸어 충돌 거절·기존 사본 보존을 확인합니다. 모의 승인이나 게시를
+추가하지 않습니다. 본인 personal 기록은 import 실습 때문에 lab으로 바꾸지 않습니다.
+
+export는 본인이 실제 공유를 확정한 별도 기록이 있을 때만 연습합니다. 예:
 
 ```sh
 python3 niil-docs/tools/workspace_bundle.py export --workspace ./my-space --output ./shared-v1.json --audience lab --ids my-shared-record
-python3 niil-docs/tools/workspace_bundle.py import --workspace ./my-space --bundle ./received.json
 ```
 
 export는 workspace.json의 본인 owner_id와 일치하는 records/*.json 중 이미 shared/accepted로
@@ -131,6 +151,7 @@ agent가 임의로 stale 잠금을 삭제하지 않습니다. 이 잠금은 로�
 실제 연결 도구·개인 정책·inbox/outbox는 guides/connected-onboarding.md를 필요한 단계에서 읽습니다.
 
 입력: 사용자의 GitHub 계정, 승인된 개인 repository와 공용 Issue 공간, 프로젝트 참여 범위.
+담당자나 프로젝트를 모르면 [공개 참여 접수 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/participation.md)를 사용합니다.
 
 행동: 실제 인증 계정과 개인 저장소의 비공개 범위를 확인합니다. 공유할 기록 한 건을 선택하고,
 개인 원본 전체를 공개하지 않은 채 본인이 작성한 공유 Issue 문서로 전달합니다. 작성자·ID·
