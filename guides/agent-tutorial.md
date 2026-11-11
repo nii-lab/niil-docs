@@ -128,6 +128,8 @@ agent가 임의로 stale 잠금을 삭제하지 않습니다. 이 잠금은 로�
 
 ## M6 · 실제 GitHub 연결과 첫 결과 공유
 
+실제 연결 도구·개인 정책·inbox/outbox는 guides/connected-onboarding.md를 필요한 단계에서 읽습니다.
+
 입력: 사용자의 GitHub 계정, 승인된 개인 repository와 공용 Issue 공간, 프로젝트 참여 범위.
 
 행동: 실제 인증 계정과 개인 저장소의 비공개 범위를 확인합니다. 공유할 기록 한 건을 선택하고,
