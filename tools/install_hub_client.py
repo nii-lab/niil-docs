@@ -16,7 +16,7 @@ FILES={'hub.py':'services/github_hub/hub.py','participant.py':'services/github_h
 
 
 def gh(path):
-    return json.loads(subprocess.check_output(['gh','api',path],text=True,stderr=subprocess.DEVNULL))
+    return json.loads(subprocess.check_output(['gh','api',path],text=True,encoding='utf-8',stderr=subprocess.DEVNULL))
 
 
 def fetch_file(path,revision):
@@ -32,7 +32,7 @@ def fetch_file(path,revision):
 def install(workspace,revision):
     workspace=Path(workspace).resolve()
     if not re.fullmatch('[a-f0-9]{40}',revision):raise ValueError('an immutable 40-character release commit is required')
-    config=json.loads((workspace/'workspace.json').read_text())
+    config=json.loads((workspace/'workspace.json').read_text(encoding='utf-8'))
     profile=gh('user');owner=profile['login']
     if config.get('kind')!='member' or config.get('owner_id')!=owner:
         raise ValueError('workspace owner must match the actual signed-in GitHub account')
@@ -69,7 +69,7 @@ def install(workspace,revision):
       'client_executed':False,'policy_changed':False,'remote_writes':False}
     if target.is_symlink():raise ValueError('client target must not be a symlink')
     if target.exists():
-        existing=json.loads((target/'receipt.json').read_text())
+        existing=json.loads((target/'receipt.json').read_text(encoding='utf-8'))
         if existing!=receipt or any((target/name).is_symlink() or hashlib.sha256((target/name).read_bytes()).hexdigest()!=value for name,value in checksums.items()):
             raise ValueError('existing client differs; preserve it and request review')
         unchanged=True
@@ -78,13 +78,13 @@ def install(workspace,revision):
             stage=Path(temporary)/'client';stage.mkdir(mode=0o700)
             for name,data in files.items():
                 path=stage/name;path.write_bytes(data);path.chmod(0o600)
-            (stage/'receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
+            (stage/'receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
             (stage/'receipt.json').chmod(0o600)
             stage.rename(target)
         unchanged=False
     pointer={'schema_version':1,'owner_id':owner,'client_directory':str(target),
              'code_revision':revision,'registry_revision':registry_revision}
-    with tempfile.NamedTemporaryFile(mode='w',dir=client_root,delete=False) as temp:
+    with tempfile.NamedTemporaryFile(mode='w',dir=client_root,delete=False,encoding='utf-8') as temp:
         json.dump(pointer,temp,ensure_ascii=False,indent=2);temp.write('\n');temp_name=temp.name
     os.replace(temp_name,client_root/'current.json')
     return {**pointer,'unchanged':unchanged,'client_executed':False,'policy_changed':False,
@@ -95,7 +95,7 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--workspace',type=Path,required=True);p.add_argument('--ref')
     a=p.parse_args()
     try:
-        revision=a.ref or json.loads((ROOT/'hub-client-release.json').read_text())['revision']
+        revision=a.ref or json.loads((ROOT/'hub-client-release.json').read_text(encoding='utf-8'))['revision']
         print(json.dumps(install(a.workspace,revision),ensure_ascii=False,indent=2))
     except (ValueError,OSError,KeyError,subprocess.SubprocessError) as exc:
         # Never print GitHub response bodies, authentication state, tokens or policy contents.

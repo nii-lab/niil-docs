@@ -16,7 +16,9 @@ numeric ID와 project를 registry에 PR로 등록한다. 학생 agent가 임의 
 
 ## 2. 필요한 연결 도구만 준비
 
-공개 niil-docs의 tools/install_hub_client.py를 일반 Python으로 실행한다.
+공개 niil-docs의 tools/install_hub_client.py를 일반 Python으로 실행한다. 한국어 문서는 UTF-8로 유지한다.
+Windows에서는 실제 설치된 Python launcher(예: py -3)를 사용하고, 기존 진단·초기화 도구에도
+-X utf8 옵션을 사용해 locale에 따라 파일 인코딩이 달라지지 않게 한다.
 
 ```sh
 python3 tools/install_hub_client.py --workspace /실제/개인/공간
