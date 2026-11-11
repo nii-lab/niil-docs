@@ -16,5 +16,6 @@
   },
   "evidence": [],
   "derived_from": [],
-  "version": 1
+  "version": 1,
+  "next_action": "다음에 확인할 한 가지와 필요한 입력을 적는다."
 }
