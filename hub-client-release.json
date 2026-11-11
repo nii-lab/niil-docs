@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "repository": "nii-lab/niil-internal",
+  "revision": "f0780e40cab5564e2f6bfbe34b21e29d8105aac5",
+  "protocol_version": "1.0",
+  "files": [
+    "services/github_hub/participant.py",
+    "services/github_hub/hub.py"
+  ],
+  "note": "Read-only pinned client preparation; each participant chooses their own policy."
+}
