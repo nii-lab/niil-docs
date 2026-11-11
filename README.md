@@ -21,6 +21,7 @@ https://raw.githubusercontent.com/nii-lab/niil-docs/main/START-HERE.md 를 읽�
 - [Agent 단계별 미션](guides/agent-tutorial.md)
 - [학생 가이드](guides/student-onboarding.md)
 - [연구실 소유 저장소·권한](guides/repository-access.md)
+- [연구 보고와 판단 요약](guides/research-reporting.md)
 - [공동 프로젝트와 PR](guides/github-workflow.md)
 - [공통 AGENTS.md](templates/common/AGENTS.md)
 - [개인 위임·승인](templates/common/GOVERNANCE.md)
