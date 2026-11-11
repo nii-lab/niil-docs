@@ -60,7 +60,7 @@ lab 공유 확정한 records/ 문서 발행). 발신자의 accept_response는 �
 
 개인 records/의 본인 결과 하나를 골라 공유 scope, 원본 commit, 관찰·해석·한계·다음 행동을
 확인한다. visibility=lab/status=accepted는 공유 확정의 뜻이며 학술 결과 입증 완료가 아니다.
-share로 같은 owner/id의 공유 Issue를 만들고 갱신할 때 version을 올린다. 원본 개인 note는 유지한다.
+첫 공유의 version은 1이다. share로 같은 owner/id의 공유 Issue를 만들고 갱신할 때 version을 올린다. 원본 개인 note는 유지한다.
 
 새 요청은 사용자가 이번 전송을 직접 요청했거나 본인 정책의 전송 범위에 들어갈 때만 보낸다.
 실제 수신자·project·audience를 확인하고 GitHub 도구로 Issue를 생성한다. 이 허브는 lab 공유만

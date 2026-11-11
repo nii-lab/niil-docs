@@ -10,7 +10,11 @@
   "updated_at": "REPLACE-ISO8601-TIMESTAMP",
   "summary": "목적과 다음 유용한 결과를 적는다.",
   "body": "목적 → 수행 → 결과 → 해석·한계 → 다음 행동",
-  "source": {"uri": "", "revision": ""},
+  "source": {
+    "uri": "",
+    "revision": ""
+  },
   "evidence": [],
-  "derived_from": []
+  "derived_from": [],
+  "version": 1
 }
