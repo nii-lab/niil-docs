@@ -18,6 +18,8 @@ def create(kind, target, owner):
                 out = target / rel
                 out.parent.mkdir(parents=True, exist_ok=True)
                 out.write_text(p.read_text().replace('{{owner}}', owner))
+    # Match the downloadable starter: reporting forms are available without another checkout.
+    shutil.copytree(ROOT / 'templates' / 'reporting', target / 'reporting')
     pr = target / 'pull_request_template.md'
     (target / '.github').mkdir(exist_ok=True)
     shutil.move(pr, target / '.github' / 'pull_request_template.md')

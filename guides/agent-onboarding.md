@@ -61,3 +61,7 @@ agent가 실제로 수행한 것과 준비만 한 것을 구분해 보고하게 
 [Codex 공식 안내](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 [Claude Code 공식 안내](https://code.claude.com/docs/en/memory)
+
+## 보고·흐름 전환·마감에 적용하기
+
+공통 계약의 「흐름 전환·인계·종료」와 [연구 보고 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/research-reporting.md)를 따른다. 새 workspace의 reporting/에는 진행·실험·세미나·종료·피드백 양식이 있다. 첫 보고/질문 전환에서 받은 결과→남은 의문→선택 이유·입력/시작·산출물/다음 인수를 연결한다. 종료 시에는 closeout.md 하나에 대표 결과물·결론/근거·정돈/보존·한계/후속·실제 환류를 모으고 current에서 연결한다. 연구 종료와 자료 정리 상태를 구분하며 과거 과업/예약을 새 참여자에게 자동 승계하지 않는다.

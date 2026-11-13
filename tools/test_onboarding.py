@@ -18,6 +18,17 @@ class OnboardingTests(unittest.TestCase):
             (target/'agent-policy.local.json').write_text('[]')
             self.assertEqual(next(c for c in diagnose(target)['checks'] if c['id']=='delegation')['status'],'needs_owner')
             with self.assertRaises(ValueError):create('member',target,'other')
+    def test_fresh_member_and_project_can_report_and_close_without_second_checkout(self):
+        for kind in ('member','project'):
+            with tempfile.TemporaryDirectory() as tmp:
+                target=create(kind,Path(tmp)/'new','LOCAL-ONLY')
+                for name in ('progress','experiment','seminar','feedback','closeout'):
+                    self.assertTrue((target/'reporting'/f'{name}.md').is_file())
+                closeout=(target/'reporting/closeout.md').read_text()
+                self.assertIn('자료·공용 마감',closeout)
+                self.assertIn('대표 결과물',closeout)
+                self.assertIn('정돈과 보존',closeout)
+
     def test_personal_policy_changes_decision_without_starting_execution(self):
         task={'protocol_version':'1.0','task_id':'example','guide_revision':'v1','to_owner':'a','from_owner':'pi','repository':'lab/proj','requested_actions':['read_shared']}
         policy={'owner_id':'a','configured_by_owner':True,'mode':'manual','allowed_repositories':['lab/proj'],'allowed_senders':['pi'],'automatic_actions':['read_shared']}
