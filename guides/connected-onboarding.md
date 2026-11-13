@@ -1,5 +1,7 @@
 # 개인 GitHub 공간을 연구실에 연결하기
 
+웹 로그인·현재 연구·본인 과업 확인은 [로그인부터 내 다음 과업까지](https://github.com/nii-lab/niil-docs/blob/main/guides/login-and-next-task.md)를 따릅니다.
+
 처음 참여하는 사람은 START-HERE.md의 한 문장으로 시작한다. 이 문서는 agent가 M6에서
 필요한 단계만 읽는 실행 안내다. 개인 연구를 위한 공통 파일 편집이나 PR은 요구하지 않는다.
 
