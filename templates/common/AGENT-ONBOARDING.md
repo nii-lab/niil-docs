@@ -76,3 +76,5 @@ https://code.claude.com/docs/en/memory
 일곱 줄 readback으로 웹 인증·API 인증·등록·현재 단계·본인 요청/guide·다음 행동·미검증을 구분한다.
 로컬 생성 공간의 current는 개인 기록이고, 프로젝트 current는 참여 프로젝트의 원본이다.
 종료된 cycle이나 빈 inbox를 새 실험 지시로 해석하지 않는다. 등록 미연결은 ‘요청 없음’이 아니다.
+
+재개·첫 기여의 보고는 reporting/ 양식을 쓴다. 흐름 전환은 앞 결과/남은 의문/선택 이유와 인계 조건을 연결하고, 종료된 범위는 reporting/closeout.md와 current의 남은 정리만 확인한다. 이 읽기가 역할·권한·예약을 새로 부여하지 않는다.
