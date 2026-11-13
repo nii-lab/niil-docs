@@ -11,6 +11,14 @@ https://raw.githubusercontent.com/nii-lab/niil-docs/main/START-HERE.md 를 읽�
 함께 만들어 주세요. 내 agent의 자동 실행·승인·알림 정책은 내가 선택하게 해 주세요.
 모르는 계정·소속·권한은 추정하지 말고, 실제 연구실 참여 권한은 별도로 확인해 주세요.
 
+## 문서 버전을 기록하기
+
+평소에는 최신 main의 안내를 사용합니다. 검증·재현 목적으로 특정 commit의 이 문서를 받았다면,
+공개 후속 매뉴얼도 같은 commit으로 읽고 그 revision을 보고합니다. 문서 내부 main 링크는
+같은 repository/path의 고정 revision으로 바꿔 읽을 수 있습니다. 이미 폐기된 인계나 과거
+문서를 현재 운영 지시로 삼지 않습니다. **연구 current·요청 상태는 이 공개 매뉴얼의 commit에
+고정하지 않고**, 실제 승인된 프로젝트의 최신 원본/이벤트와 확인 시각을 별도로 대조합니다.
+
 ## Agent: 첫 실행 순서
 
 1. 이 문서와 templates/common/AGENTS.md, templates/common/SYSTEM-PROTOCOL.md를 읽는다.
