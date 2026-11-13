@@ -75,6 +75,48 @@ Agent가 쓸 근거는 위 프로젝트와 명시적으로 연결된 공유 자�
 연구실 참여 접수는 [공개 접수 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/participation.md)를 사용합니다.
 본인 Issue가 없는 새 참여자에게 기존 연구의 완료 과업을 자동 배정하지 않습니다.
 
+## Agent의 읽기 전용 조회 · 브라우저가 없어도 가능한 범위
+
+공개 매뉴얼은 **어디서 확인할지**를 알려줍니다. 비공개 연구의 현재 결론이나 새 학생의 과업이
+공개 매뉴얼 자체에 담겨 있는 것은 아닙니다. 사용자가 본인 계정의 읽기 조회를 위임했고
+GitHub MCP/CLI 인증이 이미 연결됐다면 아래 경로를 따릅니다. 웹 포털 로그인은 별도로 확인합니다.
+새 agent가 공유 컴퓨터에서 발견한 기존 인증을 새 학생의 권한으로 자동 승계하지 않습니다.
+
+1. 실제 login/numeric ID를 조회합니다. GitHub CLI가 이미 있다면 다음은 읽기 전용입니다.
+
+```sh
+gh api user --jq '{login,id}'
+gh api user/memberships/orgs/nii-lab --jq '{state,role}'
+```
+
+2. [참여자 registry](https://github.com/nii-lab/niil-internal/blob/main/ops/live/participants.json)의
+   `participants`에서 **그 login 한 명**의 등록 ID·projects·dashboard_role을 대조합니다.
+   다른 사람의 identity/개인 자료를 수집하지 않습니다. 현재 계정이 교수이면 학생이라고 바꾸지 않습니다.
+3. [생성 현황 dashboard.json](https://github.com/nii-lab/niil-internal/blob/hub-generated/dashboard.json)을 읽습니다.
+   **hub-generated는 폴더가 아니라 branch**입니다. 인증된 API를 쓰는 경우 경로는 아래와 같습니다.
+
+```text
+GET /repos/nii-lab/niil-internal/contents/ops/live/participants.json?ref=main
+GET /repos/nii-lab/niil-internal/contents/dashboard.json?ref=hub-generated
+```
+
+4. Contents API의 `content`는 base64일 수 있으므로 agent가 메모리에서 decode합니다.
+   공개 문서가 위 URL을 제시해도 실제 Read 접근을 부여하지는 않습니다. 403/404는 초대 미수락,
+   잘못된 계정/경로 또는 도구 인증 범위 부족일 수 있으므로 **조직 비멤버라고 바로 단정하지 않습니다.**
+   부족한 접근은 운영자에게 해당 계정·경로·오류만 전달하고 다른 자격증명으로 우회하지 않습니다.
+5. 등록된 프로젝트의 공유 record/source URL만 따라갑니다. 원본 README/current 진입에서
+   활성 `wiki/current.md`와 거기서 지정한 최신 보고를 읽습니다. 운영 current나
+   과거 원본 전체를 무작정 순회하지 않습니다. 개인 연구 repository 내용은 이 조회의 대상이 아닙니다.
+6. 본인 수신·발신 요청의 원문에서 request ID·guide revision/SHA와 최신 유효 event를 확인합니다.
+   `niil-work-order`가 요청 계약이고, `niil-event`가 진행/응답/수용 근거입니다.
+   **Issue Open/Closed와 요청의 accepted/cancelled 등 처리 상태는 별개**입니다.
+   완료된 요청은 다시 실행하지 않습니다. 도구 설치가 필요한 실제 참여는
+   [연결 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/connected-onboarding.md)에서 이어갑니다.
+
+아직 본인 계정·초대·프로젝트·읽기 위임이 없다면 현재 연구와 내 요청은 **미확인**입니다.
+이는 ‘요청 없음’이 아닙니다. 다음 질문은 본인 GitHub login·초대 수락 여부·안내받은 담당자/프로젝트 유무만으로 시작합니다.
+계정이 연결돼 현재 상태를 읽은 것과, 첫 실행/공유/응답 권한·개인 자동 정책이 준비된 것은 다릅니다.
+
 ## Agent 실습 · 안내만 읽고 여기까지 왔는가
 
 공통 START-HERE와 계약을 읽은 뒤 이 실습을 수행합니다. 원격 게시나 실험은 이 조회 실습의 필수 조건이 아닙니다.

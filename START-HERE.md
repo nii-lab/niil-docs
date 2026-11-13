@@ -61,6 +61,8 @@ GitHub 계정이 없을 때 owner는 LOCAL-ONLY로만 사용한다. 이것은 �
 [로그인부터 내 다음 과업까지](https://github.com/nii-lab/niil-docs/blob/main/guides/login-and-next-task.md)를 따릅니다.
 웹 로그인·agent GitHub 인증·참여자 등록은 별개로 확인합니다. 현재 프로젝트와 본인 요청 원문을 읽고,
 일이 없거나 연구가 종료됐을 때도 다음 행동을 정확히 보고합니다. 로그인 오류의 복구 순서도 이 안내에 있습니다.
+이미 GitHub 도구가 연결된 agent는 같은 안내의 읽기 전용 registry·생성 branch 경로를 사용할 수 있습니다.
+계정/초대/프로젝트가 없다면 비공개 연구·본인 요청은 미확인으로 남기고 참여 연결부터 요청합니다.
 
 ## 촘촘한 실습
 
