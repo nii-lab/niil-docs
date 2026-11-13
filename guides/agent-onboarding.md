@@ -1,5 +1,7 @@
 # Codex·Claude Code로 NiiL 참여하기
 
+웹 로그인·현재 연구·본인 과업 확인은 [로그인부터 내 다음 과업까지](https://github.com/nii-lab/niil-docs/blob/main/guides/login-and-next-task.md)를 따릅니다.
+
 재학생과 졸업생, 승인된 협력자가 같은 계약과 문서 형식으로 참여합니다.
 각자 Codex 또는 Claude Code를 이미 사용하고 있다고 가정합니다. 도구·구독은 개인이 선택합니다.
 

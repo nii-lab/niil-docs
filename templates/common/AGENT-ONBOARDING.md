@@ -68,3 +68,11 @@ https://code.claude.com/docs/en/memory
 연구실 정보가 전혀 없는 사용자는 원본 repository의 START-HERE.md에서 시작한다.
 
 상세 미션은 공개 원본의 guides/agent-tutorial.md를 읽고 M0~M8 순서로 진행한다.
+
+
+## 연결 후 현재 연구·본인 과업 확인
+
+[로그인부터 내 다음 과업까지](https://github.com/nii-lab/niil-docs/blob/main/guides/login-and-next-task.md)의
+일곱 줄 readback으로 웹 인증·API 인증·등록·현재 단계·본인 요청/guide·다음 행동·미검증을 구분한다.
+로컬 생성 공간의 current는 개인 기록이고, 프로젝트 current는 참여 프로젝트의 원본이다.
+종료된 cycle이나 빈 inbox를 새 실험 지시로 해석하지 않는다. 등록 미연결은 ‘요청 없음’이 아니다.
