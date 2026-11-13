@@ -252,10 +252,10 @@ Owner가 한정 작업 묶음/프로젝트 전체 중 무엇을 종료하는지�
 
 | 상황 | 재사용할 양식·행동 |
 |---|---|
-| 의미 있는 진행/전환 | templates/reporting/progress.md. 최초 경계·관계가 같으면 원문을 참조하고 변경만 갱신 |
-| 실험 결과 | experiment.md. 기존 입력·새 후보/기준 차이·관찰/수용과 다음 인수를 연결 |
-| 미팅/비동기 검토 | seminar.md. 실제 결정·미결과 전환/재개·담당 조건을 남김 |
-| 종료·중단·보류 | closeout.md. 목표 대비 근거·대표 결과물·정돈/보존·결론·남은 담당과 공용 환류 |
-| 독자 점검/반복 개선 | feedback.md. 막힌 전환/시점/근거/활용을 찾아 다음 실제 보고에서 개선 효용 확인 |
+| 의미 있는 진행/전환 | [progress.md](https://github.com/nii-lab/niil-docs/blob/main/templates/reporting/progress.md). 최초 경계·관계가 같으면 원문을 참조하고 변경만 갱신 |
+| 실험 결과 | [experiment.md](https://github.com/nii-lab/niil-docs/blob/main/templates/reporting/experiment.md). 기존 입력·새 후보/기준 차이·관찰/수용과 다음 인수를 연결 |
+| 미팅/비동기 검토 | [seminar.md](https://github.com/nii-lab/niil-docs/blob/main/templates/reporting/seminar.md). 실제 결정·미결과 전환/재개·담당 조건을 남김 |
+| 종료·중단·보류 | [closeout.md](https://github.com/nii-lab/niil-docs/blob/main/templates/reporting/closeout.md). 목표 대비 근거·대표 결과물·정돈/보존·결론·남은 담당과 공용 환류 |
+| 독자 점검/반복 개선 | [feedback.md](https://github.com/nii-lab/niil-docs/blob/main/templates/reporting/feedback.md). 막힌 전환/시점/근거/활용을 찾아 다음 실제 보고에서 개선 효용 확인 |
 
 새로 생성한 개인·공동 공간에는 reporting/ 사본이 함께 있다. 이미 사용 중인 공간은 원본 templates/reporting/에서 필요한 양식만 가져오며 current·개인 위임을 초기화하지 않는다. 양식을 모두 쓰거나 같은 문장을 여러 파일에 반복하지 않는다. Agent는 재개 시 current의 상태/범위를 먼저 읽고, 범위가 종료됐다면 closeout과 남은 실제 정리만 확인한다.
