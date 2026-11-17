@@ -1,7 +1,12 @@
 # NiiL 처음 시작하기 · 사람과 agent의 공통 입구
 
-연구실 배경지식이나 Git 경험 없이 시작할 수 있습니다. 각자 사용하는 Codex 또는
+연구실 배경지식이나 Git 경험 없이 시작할 수 있습니다. 직접 참여할 수도 있고, 각자 사용하는 Codex 또는
 Claude Code에 아래 문장을 보내세요. 공통 매뉴얼을 읽고 첫 실습을 순서대로 안내합니다.
+
+## AI 없이 직접 참여하기
+
+[학생 직접 참여 체크리스트](https://github.com/nii-lab/niil-docs/blob/main/guides/student-without-agent.md)를 따르세요.
+GitHub 웹으로 결과물 축적·첫 공유·미팅 준비를 진행할 수 있으며 AI 구독은 필수가 아닙니다.
 
 ## 그대로 보낼 문장
 
@@ -86,3 +91,12 @@ guides/agent-tutorial.md의 M0~M8을 순서대로 수행한다. 각 단계에서
 - templates/common/agent-policy.example.json: 개인이 정하는 위임·승인 정책
 
 환경 진단: guides/readiness.md와 tools/doctor.py를 참고해 부분별 준비 상태와 다음 대응을 제시한다.
+
+## 연결 후 일상 업무와 미팅 준비
+
+[공통 WORKFLOW](https://github.com/nii-lab/niil-docs/blob/main/templates/common/WORKFLOW.md)는
+결과물 축적·기록·코칭·미팅 준비·Wiki/dashboard 환류의 수행 계약입니다. 새 공간에도 함께
+설치되므로 대화 이력 없이 재개할 수 있습니다. 단순 GitHub push와 공용 집계는 별개입니다.
+
+선택 실습: [결과물 축적부터 미팅 준비까지](https://github.com/nii-lab/niil-docs/blob/main/guides/weekly-workflow-tutorial.md).
+실제 연구결과/학생 확인과 구분하는 가상 연습이며 매주 반복할 의무가 아닙니다.

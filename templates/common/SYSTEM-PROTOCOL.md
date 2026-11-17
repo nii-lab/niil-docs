@@ -10,7 +10,7 @@
 ## 단일 진입과 버전
 
 AGENTS.md에서 시작하고 이 문서와 LOCAL.md, current.md를 읽는다. 첫 세션에는
-AGENT-ONBOARDING.md를 따른다. 아직 공간이 없다면 공개 START-HERE에서 starter를 먼저 준비한다.
+AGENT-ONBOARDING.md를 따른다. 일상 업무/미팅 준비/코칭은 WORKFLOW.md를 따른다. 아직 공간이 없다면 공개 START-HERE에서 starter를 먼저 준비한다.
 생성 전 LOCAL 원본은 templates/member/LOCAL.md이며 생성 후에 내 LOCAL.md를 읽는다. protocol_version은 1.0이다. major가 다른 요청은 호환성을
 확인하고 변환한다. 문서 원본은 nii-lab/niil-docs, 과학적 원본은 각 프로젝트다.
 개인 정책은 로컬의 agent-policy.local.json에 두며 공개 저장소에 올리지 않는다.

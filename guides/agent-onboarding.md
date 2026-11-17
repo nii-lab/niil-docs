@@ -65,3 +65,9 @@ agent가 실제로 수행한 것과 준비만 한 것을 구분해 보고하게 
 ## 보고·흐름 전환·마감에 적용하기
 
 공통 계약의 「흐름 전환·인계·종료」와 [연구 보고 안내](https://github.com/nii-lab/niil-docs/blob/main/guides/research-reporting.md)를 따른다. 새 workspace의 reporting/에는 진행·실험·세미나·종료·피드백 양식이 있다. 첫 보고/질문 전환에서 받은 결과→남은 의문→선택 이유·입력/시작·산출물/다음 인수를 연결한다. 종료 시에는 closeout.md 하나에 대표 결과물·결론/근거·정돈/보존·한계/후속·실제 환류를 모으고 current에서 연결한다. 연구 종료와 자료 정리 상태를 구분하며 과거 과업/예약을 새 참여자에게 자동 승계하지 않는다.
+
+## 실제 결과물에서 시작하기
+
+[공통 WORKFLOW](https://github.com/nii-lab/niil-docs/blob/main/templates/common/WORKFLOW.md)를 따른다.
+Agent가 실제 결과물에서 기존 양식에 필요한 의미를 추출한다. 학생에게 같은 내용을 다시 쓰게
+하지 않는다. 미팅 준비 확인과 연구 결과 충분성, 공유 권한과 과학적 수용은 각각 구분한다.

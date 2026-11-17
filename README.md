@@ -1,6 +1,7 @@
 # NiiL에 처음 참여한다면
 
-사용 중인 Codex 또는 Claude Code에 아래 안내를 붙여넣으세요.
+AI 없이 시작하려면 [직접 참여 체크리스트](guides/student-without-agent.md)를 따르세요.
+Agent를 사용한다면 Codex 또는 Claude Code에 아래 안내를 붙여넣으세요.
 연구실 배경지식이나 GitHub 초대 없이 **내 컴퓨터의 개인 공간과 첫 기록**부터 시작합니다.
 
 ```text
@@ -23,6 +24,8 @@ https://raw.githubusercontent.com/nii-lab/niil-docs/main/START-HERE.md 를 읽�
 - [연구실 소유 저장소·권한](guides/repository-access.md)
 - [연구 보고와 판단 요약](guides/research-reporting.md)
 - [공동 프로젝트와 PR](guides/github-workflow.md)
+- [일상 업무·기록·코칭·미팅 준비](templates/common/WORKFLOW.md)
+- [주간 흐름 가상 실습](guides/weekly-workflow-tutorial.md)
 - [공통 AGENTS.md](templates/common/AGENTS.md)
 - [개인 위임·승인](templates/common/GOVERNANCE.md)
 - [준비 상태 진단](guides/readiness.md)

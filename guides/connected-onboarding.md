@@ -71,7 +71,19 @@ lab 공유 확정한 records/ 문서 발행). 발신자의 accept_response는 �
 
 개인 records/의 본인 결과 하나를 골라 공유 scope, 원본 commit, 관찰·해석·한계·다음 행동을
 확인한다. visibility=lab/status=accepted는 공유 확정의 뜻이며 학술 결과 입증 완료가 아니다.
+공용 source.uri는 https://github.com/OWNER/REPO/blob/<40자리commit>/PATH 형식이다.
+export bundle의 검증 통과는 hub 집계 호환성을 보장하지 않으며 simulation.invalid 같은
+임시 도메인은 운영 집계에 사용할 수 없다. 실제 게시에는 실재하는 원본을 사용한다.
+
 첫 공유의 version은 1이다. share로 같은 owner/id의 공유 Issue를 만들고 갱신할 때 version을 올린다. 원본 개인 note는 유지한다.
+
+개인 정책이 이 공유를 허용하고 설치/계정/registry를 확인한 경우 다음 명령을 사용한다.
+CLIENT와 workspace/record는 실제 경로로 바꾼다. prepared 기록을 임의로 공유 확정하지 않는다.
+
+```sh
+python3 CLIENT/participant.py --workspace /실제/개인/공간 --registry CLIENT/participants.json share --record /실제/개인/공간/records/본인기록.json
+```
+
 
 manual에서 현재 client의 share는 일회 결정 옵션을 지원하지 않아 게시를 거절한다.
 이때 정확한 기록·대상 Issue와 공개 범위를 먼저 본인에게 보여 주고, **이번 전송을 실제로

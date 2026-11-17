@@ -265,3 +265,9 @@ Owner가 한정 작업 묶음/프로젝트 전체 중 무엇을 종료하는지�
 공유 brief.reports를 사용하는 기존 연결에서는 읽기 해설의 id를 `cycle-reading`, 실제 종료 범위의 최종 보고 id를 `project-closeout`으로 둔다. 기존 report schema의 summary=최종 결과, goal_link=범위/목표, interpretation=전환·종료 이유, deliverable/use=산출물/재사용·한계, next_action=남은 실제 인수, decision=판정/근거, evidence=고정 원본에 매핑한다. 당시 보고와 사후 해설의 작성자/기준시점을 구분한다.
 
 `project-closeout`은 해당 최신 공유 범위를 종료 결과로 표시하는 명시적 보고이며, 모든 하위 work가 done이라는 추정으로 생성하지 않는다. 새 cycle이 시작되면 이전 종료보고를 신규 범위에 승계하지 않는다. Owner의 실제 종료 근거와 기존 공유 권한 안에서 게시하고, 수신/집계/실제 화면을 대조한다. Markdown 작성·이 ID만으로 원격 연결이나 권한을 부여하지 않는다. 이 연결을 사용하지 않는 프로젝트는 같은 Markdown 양식과 기존 게시 경로를 그대로 사용한다.
+
+## 실제 결과물에서 시작하기
+
+[공통 WORKFLOW](https://github.com/nii-lab/niil-docs/blob/main/templates/common/WORKFLOW.md)를 따른다.
+Agent가 실제 결과물에서 기존 양식에 필요한 의미를 추출한다. 학생에게 같은 내용을 다시 쓰게
+하지 않는다. 미팅 준비 확인과 연구 결과 충분성, 공유 권한과 과학적 수용은 각각 구분한다.
